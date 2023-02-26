@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>XYZ POS - Create User</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Top bar styling */
+    .top-bar {
+      background-color: #333;
+      color: white;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    /* Form styling */
+    form {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+      font-size: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">XYZ POS</div>
+
+  <form method="POST">
+    <label for="userid">User ID:</label>
+    <input type="text" id="userid" name="userid" placeholder="Enter User ID" required>
+
+    <label for="names">Names:</label>
+    <input type="text" id="names" name="names" placeholder="Enter Names" required>
+
+    <label for="lastnames">Last Names:</label>
+    <input type="text" id="lastnames" name="lastnames" placeholder="Enter Last Names" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter Email" required>
+
+    <input type="submit" value="Create User">
+  </form>
+</body>
+</html>

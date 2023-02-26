@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XYZ POS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    .hero-image {
+      background-color: #1abc9c;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero-image h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    .login-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #007bff;
+      color: white;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.2s ease-in-out;
+    }
+    .login-btn:hover {
+      background-color: #0062cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="hero-image">
+    <div>
+      <h1>XYZ POS</h1>
+      <p>Ready to get started?</p>
+      <a href="{{ url_for( 'login' ) }}" class="login-btn">Login</a>
+    </div>
+  </div>
+</body>
+</html>
