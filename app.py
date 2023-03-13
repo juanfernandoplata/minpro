@@ -90,7 +90,8 @@ def send_verification_code( email ):
     s.sendmail( "minpro.assist@outlook.com", email, msg.as_string() )
     s.quit()
     """
-    code = "".join( chr( randint( 48, 57 ) ) for _ in range( 6 ) )
+    #code = "".join( chr( randint( 48, 57 ) ) for _ in range( 6 ) )
+    code = "1"
     print( "CODE IS:", code )
 
     return code
@@ -113,7 +114,9 @@ def send_default_password( email ):
     s.sendmail( "minpro.assist@outlook.com", email, msg.as_string() )
     s.quit()
     """
-    password = "".join( chr( randint( 48, 57 ) ) for _ in range( 6 ) )
+    #password = "".join( chr( randint( 48, 57 ) ) for _ in range( 6 ) )
+    password = "1"
+
     print( "PASSWORD IS:", password )
 
     return password

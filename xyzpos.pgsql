@@ -246,6 +246,15 @@ ALTER TABLE ONLY public.inventory
 
 GRANT ALL ON SCHEMA public TO xyzdbm;
 
+--
+-- DEFAULT DB DATA SET UP (INSERTS)
+--
+
+insert into public.retail_points values(1, 'HQ');
+insert into public.retail_points values(2, 'RP1');
+insert into public.retail_points values(3, 'RP2');
+
+insert into public.users values('1', 'DIRECTOR', 'XYZ', 'dir@xyz.com', 'pbkdf2:sha256:260000$paBnOsNAb7zdM5NX$d8784dec317431f0cf2a373482abd39370df8c1c7bcf262f97058cefd3c3631e', 'DIR', 1);
 
 --
 -- PostgreSQL database dump complete
