@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>XYZ POS VIEW PRODUCTS</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .top-bar {
+      background-color: #212121;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+    }
+    .menu {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 50px;
+      background-color: #f2f2f2;
+    }
+    .menu a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .menu a:hover {
+      color: white;
+      background-color: #212121;
+    }
+    .content {
+      margin: 20px;
+      padding: 20px;
+      background-color: #f2f2f2;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 5px;
+      text-align: left;
+    }
+    th {
+      background-color: #212121;
+      color: white;
+    }
+    input[type=text], input[type=number] {
+      width: 100%;
+      padding: 5px;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    button[type=submit] {
+      background-color: #212121;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin: 0;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    button[type=submit]:hover {
+      background-color: #f2f2f2;
+      color: #212121;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h1>VIEW PRODUCTS</h1>
+  </div>
+  <div class="menu">
+    {% if role == "DIR" or role == "MAN" %}
+    <a href="{{ url_for('users') }}">Users</a>
+    <a href="{{ url_for('products') }}">Products</a>
+    {% endif %}
+    {% if role == "MAN" %}
+    <a href="{{ url_for('inventory') }}">Inventory</a>
+    {% endif %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+  <div class="content">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in items %}
+        <tr>
+          <form method="POST">
+            <input type="hidden" name="prod_id" value="{{ item[0] }}">
+            <input type="hidden" name="name" value="{{ item[1] }}">
+            <td>{{ item[1] }}</td>
+            <td><textarea readonly style="resize:none;width:99%" rows="6" name="desc">{{ item[2] }}</textarea></td>
+            <td width="13%">
+              <table>
+                <tr><td><button type="submit" name="Add">Add to local inventory</button></td></tr>
+                <tr><td><button type="submit" name="Remove">Remove from local inventory</button></td></tr>
+              </table>
+            </td>
+          </form>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if total_pages > 1 %}
+    <div>
+        {% if page > 1 %}
+		<a href="{{ url_for('products_view', page=page-1) }}">Previous</a>
+	{% endif %}
+	{% if page < total_pages %}
+		<a href="{{ url_for('products_view', page=page+1) }}">Next</a>
+	{% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>

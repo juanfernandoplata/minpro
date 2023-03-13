@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>XYZ POS</title>
+  <title>XYZ INVENTORY</title>
   <style>
     body {
       margin: 0;
@@ -39,25 +39,33 @@
       padding: 20px;
       background-color: #f2f2f2;
     }
+    .content a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
   <div class="top-bar">
-    <h1>XYZ POS</h1>
+    <h1>INVENTORY</h1>
   </div>
   <div class="menu">
     {% if role == "DIR" or role == "MAN" %}
     <a href="{{ url_for('users') }}">Users</a>
     <a href="{{ url_for('products') }}">Products</a>
     {% endif %}
-    {% if role == "MAN" %}    
+    {% if role == "MAN" %}
     <a href="{{ url_for('inventory') }}">Inventory</a>
     {% endif %}
     <a href="{{ url_for('logout') }}">Logout</a>
   </div>
   <div class="content">
-    <h2>Welcome to XYZ POS</h2>
-    <p>Please select an option from the menu above.</p>
+    <a href="{{ url_for('inventory_view') }}">View Inventory</a><p></p>
+    <a href="{{ url_for('inventory_update') }}">Update Inventory</a>
   </div>
 </body>
 </html>
